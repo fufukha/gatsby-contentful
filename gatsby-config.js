@@ -1,15 +1,19 @@
+require('dotenv').config({
+	path: `.env.${process.env.NODE_ENV}`,
+});
+
 module.exports = {
-  siteMetadata: {
-    siteUrl: "https://www.yourdomain.tld",
-    title: "Gatsby Contentful",
-  },
-  plugins: [
-    {
-      resolve: "gatsby-source-contentful",
-      options: {
-        accessToken: "CFPAT-eSWE2MFnnt9gwUodsQ0oSm_sx2fgR17WLcXrbGD6nqE",
-        spaceId: "",
-      },
-    },
-  ],
+	siteMetadata: {
+		siteUrl: 'https://www.yourdomain.tld',
+		title: 'Gatsby Contentful',
+	},
+	plugins: [
+		{
+			resolve: 'gatsby-source-contentful',
+			options: {
+				accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+				spaceId: process.env.CONTENTFUL_SPACE_ID,
+			},
+		},
+	],
 };
